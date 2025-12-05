@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { pool } = require('../../index'); // Importa o pool de conexão que você exportou do index.js
+const { pool } = require('../config/db'); // Importa o pool de conexão que você exportou do index.js
 
 const saltRounds = 10; // Custo de processamento para o hash do bcrypt
 
@@ -9,7 +9,7 @@ const saltRounds = 10; // Custo de processamento para o hash do bcrypt
 // Endpoint: POST /api/auth/register
 // ----------------------------------------------------------------------
 exports.register = async (req, res) => {
-    const { email, password, cpf } = req.body;
+    const { email, password, cpf } = req.body; 
 
     if (!email || !password) {
         return res.status(400).json({ message: 'Email e senha são obrigatórios.' });
@@ -69,7 +69,7 @@ exports.login = async (req, res) => {
 
         // 1. Busca o usuário pelo email
         const [rows] = await connection.query(
-            `SELECT id_user, password_hash FROM users WHERE emai = ?`, // Novamente, confira se é 'emai' ou 'email'
+            `SELECT id_user, password_hash FROM users WHERE email = ?`, // Novamente, confira se é 'emai' ou 'email'
             [email]
         );
 

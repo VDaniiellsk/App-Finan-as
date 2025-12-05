@@ -3,7 +3,7 @@ const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
 
-cosnt = app = express();
+const app = express();
 
 //middlewares globais
 
@@ -16,16 +16,18 @@ app.use(cors({
 // ----------------------------------------------------
 // 1. CONFIGURAÇÃO DO BANCO DE DADOS (POOL)
 // ----------------------------------------------------
+const { pool } = require('./src/config/db');
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-});
+//const pool = mysql.createPool({
+//    host: process.env.DB_HOST,
+//    user: process.env.DB_USER,
+//    password: process.env.DB_PASSWORD,
+//    database: process.env.DB_DATABASE,
+//    waitForConnections: true,
+//    connectionLimit: 10,
+//    queueLimit: 0
+///}); 
+
 
 // ----------------------------------------------------
 // 2. ROTA DE TESTE DE CONEXÃO (Sanity Check)
@@ -41,6 +43,21 @@ app.get('/api/status', async (req, res) => {
     }
 });
 
+
+
+
+// ----------------------------------------------------
+// 4. IMPORTAÇÃO E USO DAS ROTAS
+// ----------------------------------------------------
+const authRoutes = require('./src/routes/auth.routes.js');
+const transactionsRoutes = require('./src/routes/transactions.routes'); // <--- NOVA LINHA
+
+app.use('/api/auth', authRoutes); 
+app.use('/api/transacoes', transactionsRoutes); // <--- NOVA LINHA
+
+// ...
+// 
+
 // ----------------------------------------------------
 // 3. INICIALIZAÇÃO DO SERVIDOR
 // ----------------------------------------------------
@@ -50,6 +67,3 @@ app.listen(PORT, () => {
     console.log(`Servidor Express rodando em http://localhost:${PORT}`);
     console.log(`Verifique a conexão em http://localhost:${PORT}/api/status`);
 });
-
-// Exporta o pool para que outros arquivos de rota/controller possam usá-lo
-module.exports = { pool };
