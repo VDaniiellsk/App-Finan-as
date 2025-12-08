@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // ----------------------------------------------------------------------
 // FUNÇÃO: Protege as rotas, verificando a presença e validade do JWT

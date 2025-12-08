@@ -9,7 +9,14 @@ const app = express();
 
 app.use(express.json());//habilitar o express para ler json no corpo da requisição POST/PUT
 app.use(cors({
-    origin: 'http://localhost:5173'
+     origin: [
+        'http://localhost:8081',
+        'http://localhost:5173',
+        'exp://192.168.1.106:19000',
+        '*'
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
 }));
 
 
