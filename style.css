@@ -465,3 +465,86 @@ h2 {
 .nav-item:hover {
     color: var(--text-primary);
 }
+
+/* Estilização dos Cards Detalhados de Conta */
+.account-detailed-card {
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid #222930;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.bank-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bank-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+/* Cores de Instituições para facilitar a distinção visual */
+.bank-logo.nu { background: #820AD1; color: white; }
+.bank-logo.xp { background: #E5B232; color: black; }
+
+.bank-name {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.account-type {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.account-balance {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Régua de Estatísticas Inferior do Card */
+.card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stat-value.pos { color: var(--green-accent); }
+.stat-value.neg { color: var(--red-accent); }

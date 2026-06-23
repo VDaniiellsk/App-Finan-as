@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Contas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="page-title">
+                <span class="greeting">PATRIMÔNIO LÍQUIDO</span>
+                <h1 class="username">R$ 6.056,70</h1>
+            </div>
+            <button class="notification-btn">
+                <i class="fa-solid fa-plus" style="color: var(--green-accent);"></i>
+            </button>
+        </header>
+
+        <section class="accounts-list">
+            <h2>CONTAS ATIVAS</h2>
+            
+            <div class="account-detailed-card">
+                <div class="card-top">
+                    <div class="bank-info">
+                        <div class="bank-logo nu"><i class="fa-solid fa-building-columns"></i></div>
+                        <div>
+                            <span class="bank-name">Nubank</span>
+                            <span class="account-type">Conta Corrente</span>
+                        </div>
+                    </div>
+                    <span class="account-balance">R$ 4.200,00</span>
+                </div>
+                
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Transações</span>
+                        <span class="stat-value">32</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Entradas</span>
+                        <span class="stat-value pos">+R$ 5.100</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Saídas</span>
+                        <span class="stat-value neg">-R$ 900</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account-detailed-card">
+                <div class="card-top">
+                    <div class="bank-info">
+                        <div class="bank-logo xp"><i class="fa-solid fa-chart-line"></i></div>
+                        <div>
+                            <span class="bank-name">XP Investimentos</span>
+                            <span class="account-type">Corretora</span>
+                        </div>
+                    </div>
+                    <span class="account-balance">R$ 1.856,70</span>
+                </div>
+                
+                <div class="card-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Transações</span>
+                        <span class="stat-value">04</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Entradas</span>
+                        <span class="stat-value pos">+R$ 200</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Saídas</span>
+                        <span class="stat-value neg">-R$ 0,00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="bottom-nav">
+            <a href="index.html" class="nav-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="contas.html" class="nav-item active">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Contas</span>
+            </a>
+            <a href="#transacoes" class="nav-item">
+                <i class="fa-solid fa-list-ul"></i>
+                <span>Transações</span>
+            </a>
+            <a href="#menu" class="nav-item">
+                <i class="fa-solid fa-bars"></i>
+                <span>Menu</span>
+            </a>
+        </nav>
+    </div>
+
+</body>
+</html>
