@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Zenith - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="user-info">
+                <div class="avatar">VD</div>
+                <div>
+                    <span class="greeting">BOA TARDE</span>
+                    <h1 class="username">Vitor</h1>
+                </div>
+            </div>
+            <button class="notification-btn" aria-label="Notificações">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+        </header>
+
+        <section class="balance-card">
+            <div class="balance-header">
+                <span>SALDO TOTAL</span>
+                <i class="fa-regular fa-eye-slash"></i>
+            </div>
+            <div class="balance-value-container">
+                <span class="balance-value">R$ 6.056,70</span>
+                <span class="percentage-tag down"><i class="fa-solid fa-arrow-trend-down"></i> 243.9%</span>
+            </div>
+            
+            <div class="mini-chart">
+                <svg viewBox="0 0 300 40" preserveAspectRatio="none">
+                    <path d="M 0 30 Q 75 30, 120 10 T 300 8" fill="none" stroke="#00E676" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <div class="cash-flow">
+                <div class="flow-item income">
+                    <div class="flow-icon"><i class="fa-solid fa-arrow-up"></i></div>
+                    <div>
+                        <span class="flow-title">RECEITA</span>
+                        <span class="flow-amount">R$ 10.785,00</span>
+                    </div>
+                </div>
+                <div class="flow-item expense">
+                    <div class="flow-icon"><i class="fa-solid fa-arrow-down"></i></div>
+                    <div>
+                        <span class="flow-title">DESPESAS</span>
+                        <span class="flow-amount">R$ 4.728,30</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-actions">
+            <h2>AÇÕES RÁPIDAS</h2>
+            <div class="actions-grid">
+                <button class="action-btn"><div class="icon-wrapper transfer"><i class="fa-solid fa-arrow-up-right-from-square"></i></div><span>Transferir</span></button>
+                <button class="action-btn"><div class="icon-wrapper pay"><i class="fa-regular fa-credit-card"></i></div><span>Pagar</span></button>
+                <button class="action-btn"><div class="icon-wrapper invest"><i class="fa-solid fa-chart-simple"></i></div><span>Investir</span></button>
+                <button class="action-btn"><div class="icon-wrapper scan"><i class="fa-solid fa-expand"></i></div><span>Scanner</span></button>
+            </div>
+        </section>
+
+        <section class="accounts-summary">
+            <h2>SALDO POR CONTAS</h2>
+            <div class="accounts-slider">
+                <div class="account-item">
+                    <span class="account-name">NuConta</span>
+                    <span class="account-balance">R$ 4.200,00</span>
+                </div>
+                <div class="account-item">
+                    <span class="account-name">XP Investimentos</span>
+                    <span class="account-balance">R$ 1.856,70</span>
+                </div>
+                <div class="account-item text-center">
+                    <span class="account-name">Outras</span>
+                    <span class="account-balance">R$ 0,00</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-expenses">
+            <h2>GASTOS POR CATEGORIA</h2>
+            <div class="category-card">
+                <div class="chart-container">
+                    <div class="donut-chart">
+                        <div class="inner-content">
+                            <span class="donut-title">Total</span>
+                            <span class="donut-value">R$ 4,7 mil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-legend">
+                    <div class="legend-item">
+                        <span class="dot moradia"></span> <span class="label">Moradia</span> <span class="val">64%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot investimento"></span> <span class="label">Investimento</span> <span class="val">11%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot alimentacao"></span> <span class="label">Alimentação</span> <span class="val">10%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot transporte"></span> <span class="label">Transporte</span> <span class="val">7%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="recent-transactions">
+            <div class="section-header">
+                <h2>TRANSAÇÕES RECENTES</h2>
+                <a href="#" class="view-all">Ver todas</a>
+            </div>
+            <div class="transaction-list">
+                <div class="transaction-item">
+                    <div class="tx-icon-wrapper">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div class="tx-details">
+                        <span class="tx-title">Restaurante Outback</span>
+                        <span class="tx-meta">Lazer • 06 abr</span>
+                    </div>
+                    <span class="tx-amount negative">-R$ 180,00</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
