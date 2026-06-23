@@ -410,3 +410,58 @@ h2 {
 .tx-amount.negative {
     color: var(--text-primary);
 }
+
+/* Ajuste no container para o conteúdo não ser tapado pela barra fixa */
+.app-container {
+    padding-bottom: 90px; /* Espaço de segurança para a navegação inferior */
+    position: relative;
+}
+
+/* Estrutura da Barra de Navegação Fixa */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza a barra fixa na tela */
+    width: 100%;
+    max-width: 410px; /* Mantém a mesma largura do mockup */
+    height: 72px;
+    background-color: #161B20; /* Tom sutilmente diferente do fundo para dar destaque */
+    border-top: 1px solid #222930;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 12px;
+    z-index: 100;
+}
+
+/* Itens de Navegação */
+.nav-item {
+    text-decoration: none;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    transition: color 0.2s ease;
+}
+
+.nav-item i {
+    font-size: 1.25rem; /* Tamanho do ícone ideal para toque */
+}
+
+.nav-item span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Estado Ativo (Onde o usuário está navegando) */
+.nav-item.active {
+    color: var(--green-accent); /* Destaca a aba atual com a cor principal do app */
+}
+
+.nav-item:hover {
+    color: var(--text-primary);
+}
