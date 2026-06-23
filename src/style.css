@@ -1,4 +1,3 @@
-/* Reset e Variáveis de Cor baseadas estritamente na imagem */
 * {
     margin: 0;
     padding: 0;
@@ -13,31 +12,43 @@
     --text-secondary: #7E8A97;
     --green-accent: #00E676;
     --red-accent: #FF5252;
-    
-    /* Cores das Categorias */
     --cat-moradia: #00E676;
     --cat-invest: #4DF3A9;
     --cat-fome: #FF7043;
     --cat-transp: #BA68C8;
 }
 
+/* O Body agora força o app a ficar no centro exato da tela do PC */
 body {
-    background-color: var(--bg-dark);
+    background-color: #0d1013; /* Fundo ligeiramente mais escuro para destacar o mockup */
     color: var(--text-primary);
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 0;
 }
 
-/* Container simulando a proporção do app no mockup */
+/* Container Mobile estrito */
 .app-container {
     width: 100%;
     max-width: 410px;
     background-color: var(--bg-dark);
-    padding: 24px;
+    padding: 24px 24px 100px 24px; 
     display: flex;
     flex-direction: column;
     gap: 28px;
+    position: relative; 
+    min-height: 100vh;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5); /* Sombra para simular o device */
+}
+
+h2 {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
 }
 
 /* Header */
@@ -70,7 +81,6 @@ body {
     font-size: 0.65rem;
     color: var(--text-secondary);
     letter-spacing: 1px;
-    display: block;
 }
 
 .username {
@@ -89,10 +99,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
 }
 
-/* Balance Card principal */
+/* Balance Card */
 .balance-card {
     background-color: var(--card-bg);
     border-radius: 24px;
@@ -105,7 +114,6 @@ body {
     justify-content: space-between;
     color: var(--text-secondary);
     font-size: 0.75rem;
-    letter-spacing: 0.8px;
     font-weight: 600;
 }
 
@@ -147,7 +155,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    margin-top: 16px;
 }
 
 .flow-item {
@@ -172,27 +179,10 @@ body {
 
 .income .flow-icon { background: rgba(0, 230, 118, 0.1); color: var(--green-accent); }
 .expense .flow-icon { background: rgba(255, 82, 82, 0.1); color: var(--red-accent); }
-
-.flow-title {
-    font-size: 0.65rem;
-    color: var(--text-secondary);
-    display: block;
-    letter-spacing: 0.5px;
-}
-
-.flow-amount {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
+.flow-title { font-size: 0.65rem; color: var(--text-secondary); display: block; }
+.flow-amount { font-size: 0.85rem; font-weight: 700; }
 
 /* Ações Rápidas */
-h2 {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
-}
-
 .actions-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -226,17 +216,13 @@ h2 {
 .icon-wrapper.invest { background: rgba(156, 39, 176, 0.1); color: #9C27B0; }
 .icon-wrapper.scan { background: rgba(255, 152, 0, 0.1); color: #FF9800; }
 
-/* Inclusão Estratégica: Saldo por Contas */
+/* Slider de Contas */
 .accounts-slider {
     display: flex;
     gap: 12px;
     overflow-x: auto;
-    padding-bottom: 4px;
 }
-
-/* Esconde barra de rolagem mas mantém funcional */
 .accounts-slider::-webkit-scrollbar { display: none; }
-
 .account-item {
     min-width: 130px;
     background: var(--card-bg);
@@ -245,20 +231,10 @@ h2 {
     border-radius: 16px;
     flex-shrink: 0;
 }
+.account-name { font-size: 0.7rem; color: var(--text-secondary); display: block; margin-bottom: 4px; }
+.account-balance { font-size: 0.9rem; font-weight: 700; }
 
-.account-name {
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    display: block;
-    margin-bottom: 4px;
-}
-
-.account-balance {
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-/* Gastos por Categoria */
+/* Categorias Donut */
 .category-card {
     background: var(--card-bg);
     border-radius: 24px;
@@ -269,204 +245,110 @@ h2 {
     gap: 20px;
 }
 
-.chart-container {
-    position: relative;
-    width: 110px;
-    height: 110px;
-}
-
-/* Mockup CSS do Gráfico Circular do Esboço */
+.chart-container { width: 110px; height: 110px; }
 .donut-chart {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: conic-gradient(
-        var(--cat-moradia) 0% 64%, 
-        var(--cat-invest) 64% 75%, 
-        var(--cat-fome) 75% 85%, 
-        var(--cat-transp) 85% 100%
-    );
+    background: conic-gradient(var(--cat-moradia) 0% 64%, var(--cat-invest) 64% 75%, var(--cat-fome) 75% 85%, var(--cat-transp) 85% 100%);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Efeito de corte octogonal interno do desenho */
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-}
-
-.inner-content {
-    width: 76%;
-    height: 76%;
-    background: var(--card-bg);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
 
-.donut-title {
-    font-size: 0.65rem;
-    color: var(--text-secondary);
+.inner-content {
+    width: 76%; height: 76%; background: var(--card-bg); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 }
+.donut-title { font-size: 0.65rem; color: var(--text-secondary); }
+.donut-value { font-size: 0.85rem; font-weight: 700; }
 
-.donut-value {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.category-legend {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    font-size: 0.8rem;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
+.category-legend { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.legend-item { display: flex; align-items: center; font-size: 0.8rem; }
+.dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; }
 .dot.moradia { background: var(--cat-moradia); }
 .dot.investimento { background: var(--cat-invest); }
 .dot.alimentacao { background: var(--cat-fome); }
 .dot.transporte { background: var(--cat-transp); }
-
 .label { color: var(--text-secondary); flex: 1; font-size: 0.75rem;}
 .val { font-weight: 600; font-size: 0.75rem;}
 
-/* Transações Recentes */
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-}
+/* Transações */
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.view-all { color: var(--green-accent); font-size: 0.75rem; text-decoration: none; font-weight: 600; }
+.transaction-item { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 14px; border-radius: 16px; display: flex; align-items: center; gap: 14px; }
+.tx-icon-wrapper { width: 40px; height: 40px; background: rgba(33, 150, 243, 0.1); color: #2196F3; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.tx-details { flex: 1; }
+.tx-title { display: block; font-size: 0.85rem; font-weight: 600; }
+.tx-meta { font-size: 0.7rem; color: var(--text-secondary); }
+.tx-amount { font-size: 0.85rem; font-weight: 700; }
 
-.section-header h2 { margin-bottom: 0; }
-
-.view-all {
-    color: var(--green-accent);
-    font-size: 0.75rem;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.transaction-list {
-    display: flex;
-    flex-direction: column;
-}
-
-.transaction-item {
-    background: rgba(255,255,255,0.01);
-    border: 1px solid rgba(255,255,255,0.03);
-    padding: 14px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.tx-icon-wrapper {
-    width: 40px;
-    height: 40px;
-    background: rgba(33, 150, 243, 0.1);
-    color: #2196F3;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-}
-
-.tx-details {
-    flex: 1;
-}
-
-.tx-title {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.tx-meta {
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-}
-
-.tx-amount {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.tx-amount.negative {
-    color: var(--text-primary);
-}
-
-/* Ajuste no container para o conteúdo não ser tapado pela barra fixa */
-.app-container {
-    padding-bottom: 90px; /* Espaço de segurança para a navegação inferior */
-    position: relative;
-}
-
-/* Estrutura da Barra de Navegação Fixa */
-.bottom-nav {
-    position: fixed;
+/* ==========================================================================
+   NAVEGAÇÃO ANCORADA COM TOTAL SEGURANÇA
+   ========================================================================== */
+.bottom-nav-container {
+    position: fixed; /* Volta a ser fixed, mas usando a ancoragem correta na janela */
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%); /* Centraliza a barra fixa na tela */
+    transform: translateX(-50%);
     width: 100%;
-    max-width: 410px; /* Mantém a mesma largura do mockup */
-    height: 72px;
-    background-color: #161B20; /* Tom sutilmente diferente do fundo para dar destaque */
-    border-top: 1px solid #222930;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 12px;
+    max-width: 410px; 
     z-index: 100;
 }
 
-/* Itens de Navegação */
+.bottom-nav {
+    height: 72px;
+    background-color: #161B20;
+    border-top: 1px solid #222930;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    width: 100%;
+}
+
 .nav-item {
     text-decoration: none;
     color: var(--text-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     flex: 1;
-    transition: color 0.2s ease;
+    min-width: 0;
 }
 
-.nav-item i {
-    font-size: 1.25rem; /* Tamanho do ícone ideal para toque */
+.nav-item i { font-size: 1.2rem; }
+.nav-item span { font-size: 0.6rem; font-weight: 500; }
+.nav-item.active { color: var(--green-accent); }
+
+.nav-fab-placeholder { flex: 1; pointer-events: none; }
+
+.fab-center-raised {
+    position: absolute;
+    top: -22px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    background-color: var(--green-accent);
+    color: #12161A;
+    border: 4px solid var(--bg-dark); 
+    border-radius: 50%;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 230, 118, 0.4);
 }
 
-.nav-item span {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-}
 
-/* Estado Ativo (Onde o usuário está navegando) */
-.nav-item.active {
-    color: var(--green-accent); /* Destaca a aba atual com a cor principal do app */
-}
-
-.nav-item:hover {
-    color: var(--text-primary);
-}
-
-/* Estilização dos Cards Detalhados de Conta */
+/* ==========================================================================
+   9. CORREÇÃO: ESTILOS EXCLUSIVOS DA TELA DE CONTAS (CONTAS.HTML)
+   ========================================================================== */
 .account-detailed-card {
     background-color: var(--card-bg);
     border-radius: 20px;
@@ -500,9 +382,15 @@ h2 {
     font-size: 1.2rem;
 }
 
-/* Cores de Instituições para facilitar a distinção visual */
-.bank-logo.nu { background: #820AD1; color: white; }
-.bank-logo.xp { background: #E5B232; color: black; }
+/* Identidades Visuais das Instituições */
+.bank-logo.nu { 
+    background: #820AD1; 
+    color: white; 
+}
+.bank-logo.xp { 
+    background: #E5B232; 
+    color: black; 
+}
 
 .bank-name {
     display: block;
@@ -520,10 +408,10 @@ h2 {
     font-weight: 700;
 }
 
-/* Régua de Estatísticas Inferior do Card */
+/* Grid de Métricas da Conta */
 .card-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     padding-top: 15px;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
@@ -546,5 +434,10 @@ h2 {
     font-weight: 600;
 }
 
-.stat-value.pos { color: var(--green-accent); }
-.stat-value.neg { color: var(--red-accent); }
+/* Cores de status de transação */
+.stat-value.pos { 
+    color: var(--green-accent); 
+}
+.stat-value.neg { 
+    color: var(--red-accent); 
+}
